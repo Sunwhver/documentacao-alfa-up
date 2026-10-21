@@ -1,1 +1,45 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
 # Visão Geral do Dashboard
+
+A aba **Dashboard** atua como o centro de comando principal do sistema UP. Fornece uma visão imediata e quantitativa sobre o progresso dos projetos e o volume de horas registadas pelos consultores.
+
+## Indicadores de Desempenho (Top Cards)
+
+No topo da interface, o sistema apresenta dois cartões de monitorização temporal:
+* **Esta Semana:** Exibe o total de horas apontadas na semana atual em relação ao tempo esperado e à meta estabelecida.
+* **Este Mês:** Consolida o total de horas do mês vigente, permitindo um acompanhamento de desvios operacionais.
+
+<Zoom>
+    <img
+        src="/dashboard/indicadores-desempenho.png"
+        alt="Indicadores de Desempenho do Dashboard UP"
+    />
+</Zoom>
+
+<Callout type="info">
+  **Nota para Gestão e Diretoria:** Os valores métricos assinalados a vermelho (ex: `-6.0h`) alertam visualmente que o saldo de horas está negativo face à meta planejada.
+</Callout>
+
+## Painel de Projetos Ativos
+
+A secção inferior apresenta a grelha de projetos distribuídos por cartões. A interface disponibiliza um interruptor (toggle) no canto superior direito para filtrar a visualização para **"Somente em andamento"**.
+
+Cada cartão de projeto detalha as seguintes métricas de execução:
+1. **Identificação:** Código do projeto, título e nome da empresa cliente (ex: *REAL02 - Sustentação Protheus* | *Realce Eletrodomésticos LTDA*).
+2. **Distribuição de Horas:** Contabiliza as Horas Abertas/Fechadas, Horas Diárias e o Saldo de Horas.
+3. **Previsão:** Exibe a Estimativa de Horas Técnicas alocadas.
+4. **Progresso:** Uma barra percentual que traduz o avanço da entrega.
+
+<Zoom>
+    <img
+        src="/dashboard/painel-projetos.png"
+        alt="Painel de Projetos Ativos do Dashboard"
+    />
+</Zoom>
+
+<Callout type="warning">
+  **Atenção para Consultores e QA:** É estritamente necessário manter os apontamentos atualizados. O progresso visual do cartão depende da precisão dos registos diários para refletir a realidade operacional.
+</Callout>
