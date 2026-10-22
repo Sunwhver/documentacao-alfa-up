@@ -1,0 +1,54 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Controle de Horas
+
+O módulo de **Controle de Horas** fornece uma visão consolidada e quantitativa do esforço de trabalho alocado. Diferente do detalhamento micro diário, esta interface agrupa o volume total de horas trabalhadas por projeto e por usuário dentro de um período específico, facilitando a macrogestão do tempo.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/controle-horas/controle-horas.png" 
+      alt="Interface de Controle de Horas do sistema UP" 
+    />
+  </Zoom>
+</div>
+
+## Parâmetros de Pesquisa e Grid de Resultados
+
+A interface é dividida entre o painel de filtros na secção superior e a tabela de consolidação na base:
+
+* **Filtros de Escopo:** Permite o refinamento da extração através dos campos **Data de início/término**, **Usuários**, **Projetos**, **Setores**, **Épicas** e **Visita Presencial**. 
+* **Ação de Pesquisa:** Ao definir os parâmetros e clicar no botão **Pesquisar**, o sistema compila os dados e popula a grade inferior denominada **Registros de Trabalho**.
+* **Registros de Trabalho:** A tabela apresenta uma sumarização direta. Para cada linha, exibe o nome do usuário, o projeto vinculado, o somatório de **Horas Registradas** no período (ex: *109:00*) e a janela temporal da execução.
+
+---
+
+## Emissão do Relatório Gerencial
+
+Para extrair os dados processados e utilizá-los em auditorias, apresentações de resultados ou faturamento, o gestor deve acionar o botão **Gerar Relatório** localizado no canto direito da grade de registos.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/controle-horas/controle-horas-resultado.png" 
+      alt="Documento analítico gerado pelo Controle de Horas" 
+    />
+  </Zoom>
+</div>
+
+O documento emitido estrutura as informações de forma analítica e visual, dividindo a compreensão dos dados em três níveis:
+
+1. **Métricas de Cabeçalho (Overview):**
+   * **Horas Registradas:** Somatório global de todas as horas brutas filtradas (ex: *143,00*).
+   * **Projetos:** Quantidade absoluta de projetos distintos envolvidos na extração.
+   * **Registros de Trabalho:** Volume de apontamentos individuais que compõem a consolidação (ex: *60*).
+
+2. **Representação Gráfica e Agrupamento:**
+   * O relatório insere barras de proporção visual (em azul) ao lado do título de cada projeto, facilitando a identificação imediata dos contratos que consumiram o maior volume de horas.
+   * Os dados são categorizados hierarquicamente por projeto (ex: *AGRO4 - AGRO1-P04 — Análise de Sementes*).
+
+3. **Detalhamento de Alocação por Usuário:**
+   * Abaixo do título de cada projeto, o documento exibe uma sub-tabela com os **Usuários** alocados, o **Período** exato em que atuaram (ex: *14/09/2026 - 13/10/2026*) e as suas respetivas **Horas Registradas**.
+   * A extração é finalizada com totalizadores por projeto e um **Total Geral** no rodapé para validação matemática rápida.
