@@ -1,1 +1,28 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
 # Validação por Gestor
+
+A aba **Validação por Gestor** é uma ferramenta de auditoria e controle dedicada ao acompanhamento de apontamentos que necessitam de aprovação. Esta interface permite identificar rapidamente quais líderes possuem acumulação de validações pendentes.
+
+<div className="mt-10">
+    <Zoom>
+        <img 
+        src="/dashboard/validacao-gestor.png" 
+        alt="Interface de Validação por Gestor do sistema UP" 
+        />
+    </Zoom>
+</div>
+
+## Estrutura de Pendências
+
+A interface apresenta uma listagem consolidada dos líderes de equipa, detalhando os bloqueios operacionais através das seguintes métricas:
+
+1. **Gestor:** Identificação nominal do responsável acompanhada do seu respetivo e-mail corporativo (ex: *alanc@alfaconsultorias.com.br*). A interface permite a expansão da linha para detalhes adicionais.
+2. **Pendentes:** Quantidade absoluta de registos de horas ou solicitações que aguardam a auditoria e aprovação definitiva deste profissional.
+3. **Data Pendência:** Registo cronológico que sinaliza o marco temporal da pendência (indicando a antiguidade do registo ou o ciclo a que pertence).
+
+<Callout type="warning">
+  **Diretriz de Qualidade (QA):** Um volume elevado de itens pendentes por períodos prolongados compromete a extração de relatórios fiáveis e o fecho de horas do mês. Monitorize estes indicadores para garantir a integridade dos dados do sistema.
+</Callout>
