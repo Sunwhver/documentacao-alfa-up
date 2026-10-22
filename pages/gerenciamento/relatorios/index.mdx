@@ -1,0 +1,86 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Relatórios Gerais
+
+A secção **Geral** disponibiliza painéis de extração de dados focados em diferentes métricas operacionais. Cada bloco gera um documento consolidado com base nos parâmetros selecionados.
+
+## Relatório de Horas
+
+Este extrator gera um documento consolidado das horas trabalhadas, permitindo o cruzamento de dados operacionais e a extração de métricas vitais para auditoria e faturamento.
+
+<div className="mt-10">
+  <Zoom>
+    <img src="/relatorios/relatorio-horas.png" alt="Interface de filtros do Relatório de Horas" />
+  </Zoom>
+</div>
+
+**Detalhamento dos Parâmetros de Filtragem:**
+A exatidão do documento exportado depende do preenchimento estratégico dos seguintes campos:
+* **Data de início e término:** Delimita o escopo temporal da extração (ex: 01/10/2026 a 22/10/2026)[cite: 25]. A definição do período é obrigatória para restringir o volume de processamento do banco de dados.
+* **Usuários e Setores:** Permite isolar o desempenho de um colaborador específico (ex: Diana Zamprogna) ou de um departamento inteiro (ex: Setor de Qualidade)[cite: 25]. A funcionalidade suporta seleção múltipla.
+* **Projetos, Épicas e Atividades:** Afunila a pesquisa para contratos ou entregas pontuais (ex: projeto *AGRO1-P04 — Análise de Sementes*)[cite: 25].
+* **Visita Presencial e Fora de Escopo:** Filtros binários operacionais que separam horas de desenvolvimento remoto/padrão de alocações físicas no cliente ou tarefas não previstas no contrato original[cite: 25].
+
+**Resultado da Exportação (Ação "Gerar"):**
+Ao clicar em **Gerar**, o sistema processa a matriz de dados selecionada e emite o *Relatório de Atividades* formalizado.
+
+<div className="mt-10">
+  <Zoom>
+    <img src="/relatorios/relatorio-horas-resultado.png" alt="Documento gerado pelo Relatório de Horas" />
+  </Zoom>
+</div>
+
+O documento final exibe o cabeçalho corporativo da ALFA e o contexto da filtragem, dividindo a consolidação financeira nas seguintes métricas[cite: 26]:
+* **Subtotal e Total:** Soma direta das horas brutas trabalhadas no período[cite: 26].
+* **Horas Bonificadas:** Contabilização de tempo extra ou bonificações sistémicas previamente acordadas[cite: 26].
+* **Em Escopo vs. Fora de Escopo:** Separação fundamental para a análise de rentabilidade do projeto e validação de cobranças adicionais ao cliente[cite: 26].
+
+---
+
+## Horas Trabalhadas do Usuário
+
+Focado no microgerenciamento, este relatório detalha a carga horária registada por cada utilizador diariamente.
+
+<div className="mt-10">
+  <Zoom>
+    <img src="/relatorios/horas-trabalhadas-usuario.png" alt="Filtros de Horas Trabalhadas do Usuário" />
+  </Zoom>
+</div>
+
+Partilha a mesma infraestrutura de parâmetros do relatório anterior, contudo, o motor de exportação prioriza a linha temporal diária do colaborador em vez da totalização agrupada por projeto.
+
+---
+
+## Relatório de Projeto
+
+Monitoriza as horas registadas exclusivamente no contexto de execução dos projetos pelos utilizadores.
+
+<div className="mt-10">
+  <Zoom>
+    <img src="/relatorios/relatorio-projeto.png" alt="Filtros do Relatório de Projeto" />
+  </Zoom>
+</div>
+
+* **Funcionalidade Exclusiva de Estruturação:** Este painel contém duas caixas de seleção de layout no rodapé. O utilizador deve obrigatoriamente definir a arquitetura visual do documento exportado, escolhendo entre **Agrupar por usuário** ou **Agrupar por projeto**.
+
+---
+
+## Relatório de Equipamentos
+
+Rastreia a logística, atribuição e movimentação física de hardware.
+
+<div className="mt-10">
+  <Zoom>
+    <img src="/relatorios/relatorio-equipamentos.png" alt="Filtros do Relatório de Equipamentos" />
+  </Zoom>
+</div>
+
+**Parâmetros de Filtragem:**
+* **Temporalidade:** Data de início e Data de término do registo.
+* **Ativos:** Equipamento (seleção específica de inventário), Usuário detentor e Tipo de equipamento.
+
+<Callout type="info">
+  **Ações de Exportação:** Em todos os painéis, o botão **Limpar** restaura os parâmetros para o estado original nulo, enquanto o botão **Gerar** compila a base de dados e aciona a transferência do ficheiro final para a máquina local do gestor.
+</Callout>
