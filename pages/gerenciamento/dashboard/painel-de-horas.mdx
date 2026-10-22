@@ -1,1 +1,36 @@
-# Painel de horas
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Painel de Horas
+
+O **Painel de Horas** fornece uma visão analítica e detalhada sobre o desempenho individual e coletivo da equipa. Esta secção permite filtrar os dados por mês e por setor (Consultoria, Desenvolvimento, Qualidade, etc.), facilitando a gestão departamental.
+
+<div className="mt-10">
+    <Zoom>
+        <img 
+            src="/dashboard/painel-horas.png" 
+            alt="Interface do Painel de Horas do sistema UP" 
+        />
+    </Zoom>
+</div>
+
+## Indicadores Consolidados
+
+A secção superior apresenta métricas globais baseadas nos filtros de tempo e setor selecionados:
+* **Total Realizado:** Soma das horas apontadas pela equipa, comparando diretamente com o valor esperado até à data e a meta final do mês.
+* **Na Meta:** Rácio de consultores que já atingiram a sua meta individual (ex: *0/32 consultores*).
+* **Saldo vs. Esperado / Meta:** Diferença matemática entre o tempo realizado e as projeções. Valores negativos são destacados a vermelho.
+* **Status do Mês:** Indica se o período contabilístico se encontra "Aberto" ou fechado para novos apontamentos.
+
+## Desempenho por Consultor
+
+A grelha inferior categoriza os colaboradores consoante o seu departamento (ex: *Desenvolvimento*, *Consultoria*). Para cada profissional, o sistema detalha o seguinte:
+1. **Realizado vs. Meta:** Comparação direta das horas apontadas contra a meta base estabelecida (normalmente 168.0h mensais).
+2. **Saldo:** O desvio em horas. Saldos negativos servem de alerta para atrasos nas entregas ou falhas nos apontamentos diários.
+3. **Progresso:** Representação visual através de uma barra percentual de conclusão.
+4. **Status:** Classificação automática do sistema (ex: *Abaixo da meta* ou *Meta atingida*).
+
+<Callout type="info">
+  **Nota para Gestão e Liderança:** Utilize os filtros de "Setor" localizados no topo da página para isolar a análise de departamentos específicos (como Financeiro ou QA) durante as reuniões de acompanhamento de produtividade.
+</Callout>
