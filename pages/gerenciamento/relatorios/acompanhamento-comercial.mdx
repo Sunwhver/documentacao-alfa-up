@@ -1,0 +1,64 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Acompanhamento Comercial
+
+A interface de **Acompanhamento Comercial** consolida a saúde financeira e operacional dos projetos ativos e encerrados. O painel permite monitorar o cumprimento de prazos contratuais, vigência de garantias e o consumo do banco de horas negociado.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/relatorios/acompanhamento-comercial.png" 
+      alt="Interface do Acompanhamento Comercial do sistema UP" 
+    />
+  </Zoom>
+</div>
+
+## Filtros de Pesquisa
+
+Na parte superior da tela, a interface disponibiliza três seletores para refinamento da listagem:
+* **Projeto:** Filtra a visualização por um contrato ou código de projeto específico.
+* **Situação:** Restringe os resultados pelo status do projeto (ex: *Em progresso*, *Terminado*).
+* **Cliente:** Isola todos os projetos vinculados a uma empresa contratante específica.
+
+---
+
+## Estrutura de Indicadores e Métricas
+
+A grelha principal exibe os dados organizados nas seguintes colunas de controle:
+
+1. **Identificação e Status:**
+   * **Projeto e Cliente:** Código único, descrição do projeto e nome da empresa atendida.
+   * **Situação:** Etapa operacional atual do contrato.
+
+2. **Cronograma Temporal (Datas):**
+   * **Início Estimado e Fim Estimado:** Planeamento cronológico inicial do projeto.
+   * **Entrega:** Data efetiva da conclusão e entrega das funcionalidades ao cliente.
+   * **Início Garantia e Fim Garantia:** Período de suporte pós-entrega coberto por garantia contratual.
+   * **Término:** Encerramento formal do contrato.
+
+3. **Balanço de Horas e Execução:**
+   * **Horas Comerciais:** Volume total de horas vendidas e homologadas no contrato.
+   * **Horas Alocadas:** Horas planejadas para a equipe na sprint ou fase atual.
+   * **Horas Consumidas:** Total de horas efetivamente apontadas pelos colaboradores até o momento.
+   * **Progresso:** Indicador percentual e barra visual de evolução do projeto.
+
+---
+
+## Exportação de Dados (Ação "Exportar CSV")
+
+Ao acionar o botão **Exportar CSV** no canto superior direito, o sistema gera um arquivo estruturado em planilha contendo todas as colunas da grade para auditoria externa.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/relatorios/acompanhamento-comercial-resultado.png" 
+      alt="Planilha CSV gerada pelo Acompanhamento Comercial" 
+    />
+  </Zoom>
+</div>
+
+<Callout type="warning">
+  **Análise de Desvio de Escopo:** Quando o valor de **Horas Consumidas** ultrapassa significativamente o montante de **Horas Comerciais** (ex: projetos com saldo consumido muito superior ao contratado), a gestão comercial deve avaliar a necessidade de aditivos contratuais ou renegociação de escopo.
+</Callout>
