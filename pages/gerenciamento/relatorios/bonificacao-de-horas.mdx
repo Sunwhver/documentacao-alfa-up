@@ -1,0 +1,83 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Bonificação de Horas
+
+A funcionalidade de **Bonificação de Horas** destina-se ao controle e auditoria de apontamentos de tempo que representam retrabalho ou capacitação técnica. O seu objetivo principal é isolar a carga horária operacional interna de cobranças ao cliente final, assegurando a integridade dos faturamentos e a exatidão do banco de horas dos colaboradores.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/bonificacao-horas/bonificacao-horas.png" 
+      alt="Interface de Bonificação de Horas do sistema UP" 
+    />
+  </Zoom>
+</div>
+
+## Regras de Negócio e Casos de Aplicação
+
+A bonificação de horas é acionada quando o tempo registrado por um profissional deve ser contabilizado para efeitos de remuneração e jornada de trabalho, mas **não deve ser repassado no faturamento do projeto**. Os cenários fundamentais de aplicação incluem:
+
+1. **Correção de Inconformidades Técnicas (Retrabalho):**
+   Quando ocorrem falhas de execução ou desvios na entrega de uma tarefa, o tempo adicional despendido pelo colaborador para sanar o problema é abonado. As horas são registradas, validadas pela Gestão/RH e absorvidas pela empresa, impedindo a cobrança de ineficiências ao contratante.
+
+2. **Curva de Aprendizado e Pesquisa (P&D):**
+   Caso a implementação de uma funcionalidade exija um período prévio de estudo, prova de conceito ou investigação por parte do desenvolvedor, essa carga horária de preparação técnica é sinalizada como bonificada. O cliente é faturado estritamente pelo tempo de execução direta do escopo contratado.
+
+---
+
+## Estrutura de Filtros e Seleção de Apontamentos
+
+A interface disponibiliza seletores parametrizados na parte superior e uma grade interativa no painel **Apontamentos**:
+
+* **Janela Temporal:** Campos **Data de início** e **Data de término** para delimitar o período de apuração.
+* **Pessoas e Alocação:** Seleção por **Usuários**, **Projetos** e **Setores** para isolar a análise por profissional ou departamento.
+* **Detalhamento Técnico:** Campos **Épicas**, **Atividades**, **Natureza** e **Visita Presencial** para categorizar a tipologia do apontamento.
+
+### Atualização Automática no Sistema
+
+Na tabela de **Apontamentos**, cada registro possui uma caixa de seleção na coluna **Bonificado**:
+* Ao marcar ou desmarcar a caixa **Bonificado** em uma tarefa, o sistema atualiza **automaticamente essa informação em todo o ecossistema do UP**. 
+* Essa alteração reflete em tempo real nos demais módulos, dashboards e relatórios operacionais, recalculando a carga horária cobrável sem a necessidade de reprocessamentos manuais.
+
+---
+
+## Geração e Resultado do Relatório
+
+Ao clicar no botão **Gerar Relatório** no canto superior direito do painel de apontamentos, o sistema compila os dados filtrados e emite o *Relatório de Atividades* estruturado para envio ou auditoria.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/bonificacao-horas/bonificacao-horas-resultado.png" 
+      alt="Relatório de Atividades gerado com detalhamento de horas bonificadas" 
+    />
+  </Zoom>
+</div>
+
+O documento final apresenta a consolidação dos dados operacionais e financeiros divididos em duas seções fundamentais:
+
+### 1. Métricas Consolidadas (Cabeçalho)
+* **Subtotal:** Soma bruta total de horas apontadas no período selecionado (ex: *143,00h*).
+* **Horas Bonificadas:** Volume total de horas marcadas com a flag de bonificação (ex: *12,00h*).
+* **Total:** Carga horária líquida efetivamente faturável (calculada automaticamente como `Subtotal - Horas Bonificadas`, resultando em *131,00h*).
+* **Em Escopo / Fora de Escopo:** Distribuição das horas contratuais versus entregas adicionais.
+
+### 2. Detalhamento por Colaborador e Atividade
+Abaixo dos cartões de métricas, o relatório discrimina cada item de trabalho agrupado por usuário, destacando:
+* **Tag Visual "Bonificada":** Exibição explícita da etiqueta amarela **Bonificada** ao lado do registro da atividade e data.
+* **Detalhamento Executivo:** Código da atividade (ex: *8573 - ANALI - Análise de Requisitos*), status, descrição minuciosa da tarefa realizada e total de horas alocadas.
+
+---
+
+## Impacto na Gestão Comercial e de Recursos Humanos
+
+A correta parametrization da bonificação assegura o equilíbrio entre as relações comerciais e a gestão de pessoas:
+
+* **Transparência com o Cliente:** Garante um faturamento limpo, respaldado apenas por entregas de valor e horas de desenvolvimento efetivo.
+* **Justiça Laboral (RH):** Mantém o registro do tempo trabalhado pelo colaborador para fins de pagamento e banco de horas, sem penalizar o profissional pelo registro da atividade.
+
+<Callout type="info">
+  **Diretriz de Auditoria:** Recomenda-se que a gestão de projetos e o RH analisem periodicamente os relatórios de bonificação de horas para identificar necessidades de capacitação técnica na equipe ou falhas recorrentes em arquiteturas de software.
+</Callout>
