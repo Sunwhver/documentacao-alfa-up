@@ -1,0 +1,90 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Gestão de Equipamentos
+
+O módulo de **Equipamentos** integra a seção de Inventário do sistema UP, atuando como o controle centralizado de ativos físicos da organização (notebooks, monitores, fones, mouses, teclados e periféricos gerais). A interface permite rastrear a propriedade, o histórico de aquisição, a alocação por usuário e o ciclo de vida dos bens patrimoniais.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/equipamentos/equipamentos.png" 
+      alt="Listagem principal do inventário de equipamentos do sistema UP" 
+    />
+  </Zoom>
+</div>
+
+## Visualização e Filtros de Consulta
+
+A tela principal apresenta a listagem completa dos ativos cadastrados. Para otimizar a localização de itens no acervo, a barra superior disponibiliza seletores de refinamento:
+
+* **Pesquisar:** Busca textual direta por nome, fabricante ou identificadores.
+* **Selecione o tipo:** Filtra a exibição por categorias específicas (ex: *Monitores e Notebooks*, *Fones*).
+* **Usuário:** Isola os equipamentos alocados a um colaborador específico.
+* **Status e Baixados:** Permite alternar a visualização pelo estado operacional do item e ativar a chave **Exibir baixados** para incluir ativos descontinuados ou alienados.
+
+A tabela exibe informações de controle primário, como **Nome**, **Fabricante**, **Número de Patrimônio**, **Número de Série**, **Tipo**, **Data de Aquisição** e a **Situação** (*Ativo* ou *Baixado*).
+
+---
+
+## Cadastro e Edição de Equipamentos
+
+Para registrar um novo ativo no sistema, aciona-se o botão de adição (`+`) no canto superior direito da tela.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/equipamentos/inserir-novo-equipamento.png" 
+      alt="Formulário de cadastro de novo equipamento" 
+    />
+  </Zoom>
+</div>
+
+O formulário exige e permite o preenchimento dos seguintes parâmetros estruturais:
+
+* **Identificação:** **Nome** do equipamento, **Fabricante**, **Número de patrimônio** e **Número de série**.
+* **Categorização:** Seleção do **Tipo** do ativo (com atalho direto `+ Novo tipo` para cadastrar novas categorias sem sair do fluxo).
+* **Histórico Financeiro e Temporal:** **Data de aquisição**, **Data de fabricação**, **Valor pago** e o seletor **Comprado novo**.
+* **Detalhamento:** Campo de texto com formatação para inclusão de observações técnicas ou estado de conservação.
+
+Para alterar dados de um ativo existente, basta selecionar a opção de edição na linha correspondente da tabela.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/equipamentos/editar-equipamento.png" 
+      alt="Modal de edição de informações do equipamento" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## Gerenciamento de Tipos de Equipamentos
+
+A navegação superior permite alternar para a aba **Tipos de equipamentos**, responsável por padronizar a classificação das categorias de ativos da empresa.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/equipamentos/tipos-equipamentos.png" 
+      alt="Aba de cadastro e consulta de tipos de equipamentos" 
+    />
+  </Zoom>
+</div>
+
+Nesta aba, a gestão pode estruturar novas taxonomias (ex: *Suporte Articulado - Monitores*, *Mouse e Teclado*, *Equipamentos de Escritório*), definindo o nome e a descrição de cada categoria de item.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/equipamentos/editar-tipo-equipamento.png" 
+      alt="Modal de edição de tipo de equipamento" 
+    />
+  </Zoom>
+</div>
+
+<Callout type="info">
+  **Governança de Ativos:** Manter os campos de **Número de Patrimônio** e **Número de Série** devidamente preenchidos garante a rastreabilidade em auditorias internas e facilita a atribuição de responsabilidade no momento do termo de entrega ao colaborador.
+</Callout>
