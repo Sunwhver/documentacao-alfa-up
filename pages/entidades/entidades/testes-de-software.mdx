@@ -1,0 +1,135 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Gestão de Testes de Software
+
+O módulo **Testes de Software**, inserido na área de Entidades, funciona como a plataforma central para a garantia de qualidade (QA) do sistema. Esta interface permite catalogar cenários de validação, mapear o comportamento esperado do software, gerir ciclos de execução (sucesso/falha) e criar roteiros detalhados para os Analistas de Qualidade (QA) ou desenvolvedores.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/testes-software/testes-software.png" 
+      alt="Painel principal com a listagem de testes de software" 
+    />
+  </Zoom>
+</div>
+
+## 1. Criação e Parametrização Inicial de Testes
+
+A listagem principal consolida todos os projetos de QA ativos. Para introduzir um novo protocolo de validação, o utilizador deve acionar o botão **+ Novo Teste**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/testes-software/adicionar-teste.png" 
+      alt="Modal para criação de um novo teste de software" 
+    />
+  </Zoom>
+</div>
+
+O formulário de criação exige a definição estrutural do teste:
+* **Nome:** Título de identificação do caso de uso ou funcionalidade em teste.
+* **Tipo:** Classificação metodológica (ex: *Funcional*, *Integração*, *Regressão*).
+* **Situação e Status Execução:** Indicadores do estado atual do planeamento (ex: *Pendente*).
+* **Atividade:** Vínculo formal a uma tarefa específica planeada no quadro de atividades do projeto.
+* **Responsável e Desenvolvedor:** Atribuição do QA encarregue da validação e do programador responsável pela correção, caso sejam detetadas falhas.
+
+---
+
+## 2. Estruturação do Roteiro de Teste (Edição)
+
+Uma vez criado, a edição do teste permite documentar detalhadamente o caso de uso. O ecrã divide-se em três secções lógicas: **Descrição Geral**, **Etapas de Validação** e histórico de **Execuções**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/testes-software/editar-teste.png" 
+      alt="Vista global do modo de edição de um teste de software" 
+    />
+  </Zoom>
+</div>
+
+### Gestão Manual de Etapas (Passo a Passo)
+
+A área de **Etapas** é o núcleo do caso de teste. Define a sequência mecânica que o QA deve seguir. Ao clicar em **+ Nova Etapa**, o sistema abre blocos de formatação de texto rico (Rich Text).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/testes-software/editar-teste-nova-etapa.png" 
+      alt="Interface de criação manual de uma nova etapa de teste" 
+    />
+  </Zoom>
+</div>
+
+Para cada passo, o utilizador define:
+1. **Etapa (Ação):** A instrução clara do que deve ser executado no sistema (ex: *Clicar no botão Salvar*).
+2. **Resultado Esperado:** O comportamento obrigatório do sistema após a ação (ex: *O modal deve fechar e a tabela atualizar*).
+
+Uma vez guardadas, as etapas formam uma grelha ordenada. O ícone de anexo evidencia os passos que possuem documentação complementar (como *prints* de ecrã ou especificações de *layout*), enquanto o ícone de olho permite pré-visualizar o detalhe da instrução.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/testes-software/editar-teste-etapas.png" 
+      alt="Grelha ordenada das etapas de teste com indicadores de anexo e pré-visualização" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## 3. Importação em Lote via Planilha (Mass Upload)
+
+Para otimizar o trabalho da equipa de QA na criação de testes complexos ou na migração de dados de sistemas antigos, a plataforma suporta a importação de cenários via Microsoft Excel (`.xlsx`).
+
+Ao clicar em **Importar planilha**, o sistema abre o modal de assistência à importação.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/testes-software/editar-teste-importar-planilha.png" 
+      alt="Modal de importação de etapas por planilha" 
+    />
+  </Zoom>
+</div>
+
+### Obtenção do Modelo e Regras de Importação
+
+Para garantir a compatibilidade estrutural, o utilizador deve descarregar o *template* oficial clicando no botão **Baixar modelo**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/testes-software/editar-teste-importar-planilha-baixar-modelo.png" 
+      alt="Destaque para o botão de download do modelo em Excel" 
+    />
+  </Zoom>
+</div>
+
+A planilha modelo possui apenas duas colunas restritas: **ETAPA** (Coluna A) e **RESULTADO ESPERADO** (Coluna B).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/testes-software/editar-teste-importar-planilha-baixar-modelo-resultado.png" 
+      alt="Estrutura do ficheiro Excel gerado para preenchimento de etapas" 
+    />
+  </Zoom>
+</div>
+
+Após preencher o ficheiro em ambiente local, basta arrastar o documento `.xlsx` finalizado para a área tracejada do modal (Drag and Drop) ou clicar para selecionar o ficheiro. As linhas importadas serão validadas e anexadas sequencialmente ao final das etapas que já existiam no teste (limite máximo de 500 etapas ou ficheiros até 5MB).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/testes-software/editar-teste-importar-planilha-arrastar-planilha.png" 
+      alt="Área de drag and drop para upload da planilha preenchida" 
+    />
+  </Zoom>
+</div>
+
+<Callout type="warning">
+  **Governança de Dados:** O sistema ignora automaticamente linhas vazias na planilha importada. No entanto, é fundamental não alterar ou apagar os cabeçalhos originais (linha 1 do modelo), pois isso inviabiliza o mapeamento automático das colunas pelo sistema.
+</Callout>
