@@ -1,0 +1,60 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Relatório de Sprint
+
+O **Relatório de Sprint** é uma ferramenta essencial para o acompanhamento ágil dos projetos. Este módulo permite extrair um consolidado de todos os itens planeados para um ciclo de desenvolvimento (sprint), fornecendo um resumo executivo do progresso e a distribuição exata das tarefas por responsável.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-sprint/relatorio-sprint.png" 
+      alt="Interface de geração do Relatório de Sprint" 
+    />
+  </Zoom>
+</div>
+
+## Configuração e Filtros de Pesquisa
+
+A interface de extração é direta e oferece duas perspetivas de detalhamento na secção superior: **Sprint** (visão padrão consolidada) e **Sprint Detalhado**. 
+
+Para gerar o documento, o gestor deve preencher os seguintes parâmetros:
+* **Projeto:** Seleção obrigatória do projeto ao qual a sprint pertence.
+* **Sprint:** Seleção do ciclo ágil específico que se deseja auditar (ex: *S1AGRO1-20260914*).
+* **Data de início e Data de término:** Delimitadores temporais que filtram os itens contidos na sprint com base no período de execução.
+
+---
+
+## Documento Gerado (PDF)
+
+Ao clicar em **Gerar**, o sistema processa as informações e emite um documento em formato PDF, otimizado para apresentações de *Sprint Review* ou auditorias de qualidade.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-sprint/relatorio-sprint-resultado.png" 
+      alt="Documento em PDF gerado pelo Relatório de Sprint" 
+    />
+  </Zoom>
+</div>
+
+A arquitetura visual do documento divide-se em duas secções principais:
+
+### 01. Resumo Executivo
+Uma visão gerencial em cartões numéricos que quantifica a saúde da sprint atual:
+* **Total de Itens:** Volume absoluto de entregáveis planeados.
+* **Concluídos:** Tarefas efetivamente terminadas.
+* **Em Progresso:** Tarefas ativas no fluxo de trabalho.
+* **Não Iniciados:** Itens que permanecem no *backlog* da sprint.
+
+### 02. Itens do Sprint
+Uma tabela detalhada que rastreia a rastreabilidade técnica de cada entrega. As colunas exibem:
+* **Tipo e Atividade:** Classificação da entrega (ex: *TAREFA*) e a sua descrição.
+* **Épica:** Agrupamento macro ao qual a atividade pertence (ex: *Análise de Requisitos*).
+* **Responsável:** O colaborador alocado à tarefa.
+* **Datas e Status:** Período de execução e a situação operacional atual da tarefa (ex: *Terminado*).
+
+<Callout type="info">
+  **Cerimónias Ágeis:** Recomenda-se a geração deste relatório imediatamente antes das reuniões de encerramento de sprint para basear as decisões operacionais em dados em tempo real.
+</Callout>
