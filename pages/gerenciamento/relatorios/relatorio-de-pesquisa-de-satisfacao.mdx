@@ -1,0 +1,126 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Relatório de Pesquisas de Satisfação
+
+O módulo de **Pesquisas de Satisfação** permite aferir a qualidade das entregas através de formulários enviados aos envolvidos no projeto. Para garantir a rastreabilidade dos dados, o sistema exige uma configuração prévia de vínculos antes da emissão dos relatórios.
+
+---
+
+## 1. Pré-requisito: Vinculação de Usuário e Cliente
+
+A arquitetura do sistema UP define que **projetos pertencem a clientes**. Para que um utilizador interno (funcionário) esteja elegível para receber uma pesquisa de satisfação de um projeto específico, o seu cadastro deve estar explicitamente vinculado ao cliente dono daquele projeto.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-pesquisa-satisfacao/configuracao-usuarios.png" 
+      alt="Vinculação de cliente no cadastro de usuário" 
+    />
+  </Zoom>
+</div>
+
+* **Exemplo Prático:** Se o projeto "Teste diana" pertence ao cliente "SINNC-SOLUCOES LTDA", o cadastro do colaborador (ex: *Diana Zamprogna*) deve ter a empresa "SINNC" selecionada no campo **Cliente**.
+
+---
+
+## 2. Disparo da Pesquisa de Satisfação
+
+O envio do formulário é realizado diretamente no painel de acompanhamento do projeto. O gestor deve aceder a **Dashboard**, selecionar o projeto desejado e navegar até ao separador **Pesquisa de Satisfação**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-pesquisa-satisfacao/configuracao-pesquisa-satisfacao-adicionar.png" 
+      alt="Ação de adicionar nova pesquisa no painel do projeto" 
+    />
+  </Zoom>
+</div>
+
+Ao clicar no botão de adição (`+`), o modal de envio é ativado. A seleção de destinatários obedece a duas regras de negócio:
+1. **Destinatários Internos:** A lista exibe automaticamente os utilizadores do sistema que possuem o vínculo correto com o cliente do projeto.
+2. **Destinatários Externos (Cliente):** Para enviar a pesquisa diretamente para o cliente final ou utilizadores sem cadastro, utiliza-se o campo **E-mails adicionais**, onde qualquer endereço pode ser inserido. 
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-pesquisa-satisfacao/configuracao-envio-pesquisa-satisfacao.png" 
+      alt="Configuração de destinatários e e-mails adicionais" 
+    />
+  </Zoom>
+</div>
+
+A confirmação desta etapa dispara automaticamente o formulário para os e-mails configurados.
+
+---
+
+## 3. Monitoramento Individual de Respostas
+
+Ainda no painel do projeto, é possível auditar o estado de preenchimento. Clicar sobre uma pesquisa já enviada (ex: código *96*) abre o painel de visualização de respostas.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-pesquisa-satisfacao/configuracao-pesquisa-satisfacao-visualizar.png" 
+      alt="Seleção de uma pesquisa enviada para visualização" 
+    />
+  </Zoom>
+</div>
+
+Nesta interface, o sistema gere o estado de cada destinatário:
+* **Resposta Pendente:** Caso o destinatário selecionado ainda não tenha preenchido o formulário, o sistema exibe o alerta: *"Este usuário ainda não respondeu a pesquisa"*.
+
+<div className="mt-10">
+  <Zoom>
+    <img
+      src="/relatorios/relatorio-pesquisa-satisfacao/visualizar-resposta-inexistente.png"
+      alt="Visualização de aviso Este usuário não respondeu a pesquisa"
+    />
+  </Zoom>
+</div>
+
+* **Resposta Concluída:** Caso o destinatário já tenha submetido o formulário, a interface renderiza as notas e observações individuais declaradas por ele.
+
+<div className="mt-10">
+  <Zoom>
+    <img
+      src="/relatorios/relatorio-pesquisa-satisfacao\visualizar-resposta-existente.png"
+      alt="Visualização das respostas da pesquisa do usuário selecionado"
+    />
+  </Zoom>
+</div>
+
+---
+
+## 4. Extração do Relatório Consolidado
+
+Para obter uma visão macro e exportar os dados oficialmente, o utilizador deve retornar ao menu principal em **Gerenciamento > Relatórios > Relatório de Pesquisas de Satisfação**. 
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-pesquisa-satisfacao/relatorio-pesquisa-satisfacao.png" 
+      alt="Filtros de extração do relatório de pesquisas" 
+    />
+  </Zoom>
+</div>
+
+Ao definir o **Projeto** ou **Usuário** e clicar em **Gerar**, o sistema emite um documento em PDF que compila o desempenho do projeto.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-pesquisa-satisfacao/relatorio-pesquisa-satisfacao-resultado.png" 
+      alt="Documento em PDF gerado com as notas e métricas de satisfação" 
+    />
+  </Zoom>
+</div>
+
+O documento consolidado fornece:
+* **Métricas Globais:** Média de estrelas atribuída, volume de respostas recebidas vs. pendentes e a taxa de conversão (ex: *50,0%*).
+* **Auditoria de Respostas:** Detalhamento do e-mail do destinatário, a data da resposta e as notas exatas conferidas a cada critério avaliado (ex: *Planeamento inicial* e *Comunicação*).
+
+<Callout type="info">
+  **Diretriz de Qualidade:** Utilize as métricas consolidadas em PDF para compor as reuniões de encerramento de projeto e documentar as lições aprendidas (Lessons Learned).
+</Callout>
