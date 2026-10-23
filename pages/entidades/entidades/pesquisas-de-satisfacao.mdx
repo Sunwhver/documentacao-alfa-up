@@ -1,0 +1,101 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Gerenciamento de Formulários de Pesquisa de Satisfação
+
+O módulo de **Pesquisas de Satisfação** localizado na seção de **Entidades** é dedicado à criação, estruturação e manutenção dos **modelos de formulários** que serão utilizados na empresa.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/pesquisas-satisfacao/pesquisas-satisfacao.png" 
+      alt="Listagem principal dos modelos de pesquisas de satisfação" 
+    />
+  </Zoom>
+</div>
+
+<Callout type="info">
+  **Diferenciação de Módulos:**
+  * **Entidades > Pesquisas de Satisfação (Esta tela):** Configura a estrutura dos formulários (cadastro do nome, instruções, perguntas, opções e tipos de resposta).
+  * **Gerenciamento > Relatórios > Pesquisa de Satisfação:** Executa o disparo dos formulários cadastrados para clientes/usuários, monitora status de preenchimento e gera relatórios em PDF.
+</Callout>
+
+---
+
+## 1. Painel Principal de Modelos
+
+A tela inicial lista todos os formulários estruturados no sistema. A tabela exibe o **Nome** da pesquisa, a **Descrição** executiva do modelo e a quantidade total de **Perguntas** configuradas em cada instrumento de avaliação.
+
+### Ação para Novo Formulário
+
+Para iniciar a construção de um modelo de avaliação inédito, aciona-se o botão **+ Nova Pesquisa** localizado no canto superior direito.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/pesquisas-satisfacao/adicionar-pesquisa.png" 
+      alt="Destaque da ação de criação de nova pesquisa" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## 2. Configuração Inicial do Formulário
+
+Ao criar uma nova pesquisa, o gestor define a identidade visual e o texto orientativo que será exibido aos destinatários.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/pesquisas-satisfacao/configurando-nova-pesquisa.png" 
+      alt="Tela de cadastro dos dados gerais da pesquisa de satisfação" 
+    />
+  </Zoom>
+</div>
+
+### Campos de Cabeçalho
+
+* **Nome:** Título formal do formulário (ex: *Pesquisa de Satisfação - Gerente de Projetos*).
+* **Descrição:** Texto explicativo interno sobre a finalidade daquele modelo de pesquisa.
+* **Instruções:** Orientações diretas que aparecem na interface do usuário/cliente no momento do preenchimento, direcionando como as perguntas devem ser respondidas.
+
+---
+
+## 3. Edição e Estruturação das Perguntas
+
+Para alterar os dados gerais ou gerenciar os itens de avaliação de uma pesquisa existente, acessa-se a opção de edição na listagem principal.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/pesquisas-satisfacao/editar-pesquisa.png" 
+      alt="Modal de edição de cabeçalho e instruções da pesquisa" 
+    />
+  </Zoom>
+</div>
+
+Abaixo do bloco de instruções, o sistema disponibiliza o construtor dinâmico de perguntas, permitindo adicionar, ordenar e configurar diferentes formatos de resposta.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/pesquisas-satisfacao/editar-pesquisa-2.png" 
+      alt="Construtor dinâmico de perguntas e seletores de tipos de resposta" 
+    />
+  </Zoom>
+</div>
+
+### Tipos de Resposta Suportados
+
+Ao incluir uma nova questão pelo botão **+ Adicionar Pergunta**, define-se a **Descrição** do questionamento e escolhe-se o **Tipo de Resposta**:
+
+1. **Nota:** Escala quantitativa de avaliação (estrelas/pontuação).
+2. **Seleção Única:** Lista de alternativas onde o respondente pode escolher apenas uma opção.
+3. **Seleção Múltipla:** Lista de alternativas onde o respondente pode marcar uma ou mais opções.
+4. **Texto Livre:** Campo discursivo para comentários abertos, com campo para limitar o **Tamanho Máximo do Texto** (ex: *100 caracteres*).
+
+Para as questões do tipo Seleção Única e Seleção Múltipla, o botão **+ Adicionar Opção** permite incluir quantos itens forem necessários para a resposta.
+
+---
