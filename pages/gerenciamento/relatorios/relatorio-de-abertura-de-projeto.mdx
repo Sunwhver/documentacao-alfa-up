@@ -1,0 +1,52 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Relatório de Abertura de Projeto
+
+O **Relatório de Abertura de Projeto** é o documento oficial que formaliza o planeamento inicial e o cronograma de execução. A sua emissão fornece à gestão e ao cliente uma visão estruturada das entregas, segmentadas por *sprint* e categorizadas por tipologia de esforço técnico e épicas.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-abertura-projeto/relatorio-abertura-projeto.png" 
+      alt="Interface de geração do Relatório de Abertura de Projeto" 
+    />
+  </Zoom>
+</div>
+
+## Parâmetros de Emissão
+
+A interface foi desenhada para facilitar a extração direta do planeamento global ou a visualização de cortes parciais:
+
+* **Projeto (Regra de Negócio Principal):** A única ação estritamente obrigatória na interface. **Ao selecionar apenas o projeto desejado e deixar os restantes campos em branco, o sistema compila automaticamente o relatório completo**, abrangendo todas as sprints e toda a linha temporal planeada para aquele contrato.
+* **Filtros Opcionais de Refinamento:** Caso a gestão necessite de auditar um segmento específico, é possível restringir a extração selecionando uma **Sprint** isolada ou delimitando uma janela exata em **Data de início** e **Data de término**.
+
+---
+
+## Estrutura do Documento Gerado
+
+Ao clicar em **Gerar**, o sistema emite o mapa completo de execução em PDF.
+
+<div className="mt-10 mb-8">
+  <Zoom>
+    <img 
+      src="/relatorios/relatorio-abertura-projeto/relatorio-abertura-projeto-resultado.png" 
+      alt="PDF gerado contendo o cronograma de planejamento por sprint" 
+    />
+  </Zoom>
+</div>
+
+A arquitetura da secção central do documento, denominada **Planejamento — Cronograma por Sprint**, organiza as tarefas hierarquicamente:
+
+1. **Cabeçalho de Identificação da Sprint:** 
+   Exibe a nomenclatura técnica da sprint (ex: *S1AGRO1-20260914*), o seu período de vigência e, no canto superior direito, um cartão sumarizador que contabiliza o esforço planeado por área de atuação (ex: *ANALI 17,5h + DEV 24,5h = 42h*).
+2. **Grelha de Rastreabilidade Técnica:**
+   * **Tipo:** Etiqueta visual da disciplina técnica (ex: *ANALI* para análise de requisitos, *DESEN* para desenvolvimento).
+   * **Épica e Atividade:** O módulo principal ao qual a tarefa pertence e a descrição executiva do que será entregue.
+   * **ESF. (Esforço):** Carga horária granular estimada exclusivamente para aquela linha.
+   * **Datas:** O fracionamento temporal da atividade dentro do período maior da sprint.
+
+<Callout type="info">
+  **Formalização Contratual:** Recomenda-se a submissão deste documento em anexo ao Termo de Abertura do Projeto (TAP) para alinhar transparência, esforço alocado e datas de entrega com o cliente antes do início da fase de desenvolvimento.
+</Callout>
