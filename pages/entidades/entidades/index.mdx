@@ -1,0 +1,184 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Gestão de Usuários, Grupos e Setores
+
+O módulo de **Usuários** centraliza a administração de colaboradores, permissões de acesso e estrutura departamental da organização no sistema UP. A interface é dividida em três abas principais de gestão: **Usuários**, **Grupos** e **Setores**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/usuarios.png" 
+      alt="Listagem principal de usuários no sistema UP" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## 1. Aba Usuários
+
+A aba de **Usuários** exibe a listagem consolidada de todos os colaboradores cadastrados, apresentando **Nome**, **E-mail**, **Cargo**, indicação de perfil **Administrador** e status **Ativo**.
+
+### Inclusão de Novo Colaborador
+
+Para cadastrar um novo funcionário no sistema, aciona-se o botão de adição (`+`). O modal solicita o preenchimento de dados pessoais, credenciais, datas contratuais, carga horária e alocações operacionais.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/adicionar-usuario.png" 
+      alt="Modal de inclusão de novo usuário" 
+    />
+  </Zoom>
+</div>
+
+### Edição e Atualização de Colaborador
+
+A alteração de registros existentes é feita selecionando a opção de edição na linha correspondente da tabela. O modal abre com as informações atuais preenchidas para consulta ou ajuste de parâmetros.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/editar-usuario.png" 
+      alt="Modal de edição de usuário preenchido" 
+    />
+  </Zoom>
+</div>
+
+### Campos e Regras de Negócio de Usuários
+
+1. **Informações de Identificação e Acesso:**
+   * **Nome** e **E-mail:** Credenciais e dados de identificação do colaborador.
+   * **Senha:** Definição de credencial para primeiro acesso ou redefinição.
+   * **Cargo:** Função formal desempenhada na empresa (ex: *Analista de Qualidade*).
+
+2. **Histórico Temporal e Jornada:**
+   * **Data de nascimento**, **Data de contratação** e **Data de desligamento**: Registro do ciclo de vida contratual.
+   * **Calendário:** Vínculo ao calendário operacional de feriados (ex: *ALFA 2026*).
+   * **Horas/dia:** Carga horária contratual diária para apuração de banco de horas (ex: *6h*).
+
+3. **Restrições Estruturais e Vínculos (Regras Importantes):**
+   * **Setor (Seleção Única):** O colaborador só pode estar vinculado a **apenas um setor** por vez (ex: a usuária *Diana Zamprogna* está associada estritamente ao setor *Qualidade*).
+   * **Grupos (Seleção Múltipla):** O colaborador pode pertencer a **mais de um grupo de permissões** simultaneamente para acumular privilégios no sistema (ex: a usuária *Diana Zamprogna* está alocada nos grupos *2. Funcionário* e *6. Relatórios - Individual*).
+   * **Cliente:** Associação do usuário a uma empresa contratante específica (ex: *SINNC-SOLUCOES LTDA*). Este vínculo é obrigatório para que o funcionário apareça como destinatário ao disparar pesquisas de satisfação do cliente.
+   * **Projetos:** Múltipla seleção de projetos em que o colaborador possui autorização para realizar apontamento de horas.
+   * **Permissões Globais:** Chaves de seleção para definir status **Ativo** e privilégios de **Administrador**.
+
+<Callout type="warning">
+  **Regra de Associação:** Lembre-se de que a alocação de **Setor** é estritamente **individual e única** por usuário, enquanto a atribuição de **Grupos** permite **múltipla seleção** para composição do perfil de acesso.
+</Callout>
+
+---
+
+## 2. Aba Grupos
+
+A aba **Grupos** gerencia os perfis de acesso e privilégios operacionais atribuídos aos usuários do sistema.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/grupos.png" 
+      alt="Listagem de grupos de permissões no sistema UP" 
+    />
+  </Zoom>
+</div>
+
+### Criação de Novo Grupo
+
+Acionar o botão de adição (`+`) na aba de Grupos permite cadastrar uma nova categoria de permissões definindo a sua nomenclatura inicial.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/adicionar-grupo.png" 
+      alt="Modal de criação de novo grupo de permissões" 
+    />
+  </Zoom>
+</div>
+
+### Configuração de Perfis de Grupo
+
+Ao editar um grupo existente (ex: *2. Funcionário*), a interface disponibiliza três abas internas para parametrização detalhada de acessos:
+
+#### A. Usuários
+Permite visualizar, adicionar e remover colaboradores vinculados ao grupo selecionado.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/editar-grupo-usuarios.png" 
+      alt="Aba de gestão de usuários vinculados ao grupo" 
+    />
+  </Zoom>
+</div>
+
+#### B. Visões
+Define quais telas, módulos e relatórios estarão visíveis no menu de navegação lateral para os integrantes do grupo (ex: *Dashboard*, *Solicitações*).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/editar-grupo-visoes.png" 
+      alt="Aba de seleção de visões ativas para o grupo" 
+    />
+  </Zoom>
+</div>
+
+#### C. Permissões
+Determina o nível granular de ações autorizadas (Adicionar, Alterar, Excluir, Visualizar) por funcionalidade ou tipo de relatório.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/editar-grupo-permissoes.png" 
+      alt="Aba de permissões granulares por entidade" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## 3. Aba Setores
+
+A aba **Setores** estrutura os departamentos organizacionais da empresa (ex: *Análise de Dados*, *Comercial*, *Consultoria*, *Desenvolvimento*, *Financeiro*, *Qualidade*).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/setores.png" 
+      alt="Listagem de setores cadastrados" 
+    />
+  </Zoom>
+</div>
+
+### Cadastro de Novos Setores
+
+A inclusão de um novo setor permite registrar a nomenclatura do departamento, uma descrição informativa e vincular o gestor direto pelo campo **Responsável**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/adicionar-setor.png" 
+      alt="Modal de inclusão de novo setor" 
+    />
+  </Zoom>
+</div>
+
+### Edição e Alocação de Equipe por Setor
+
+A edição de um setor possibilita alterar as informações do departamento e consultar a lista de **Usuários Alocados**, assegurando a gestão da estrutura corporativa.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/usuarios/editar-setor.png" 
+      alt="Modal de edição de setor e alocação de equipe" 
+    />
+  </Zoom>
+</div>
+
+<Callout type="info">
+  **Rastreabilidade Operacional:** Cada setor possui um gestor designado no campo **Responsável**. Os relatórios analíticos de horas e esforço utilizam o agrupamento por setor para mensurar a produtividade departamental.
+</Callout>
