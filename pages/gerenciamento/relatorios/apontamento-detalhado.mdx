@@ -1,0 +1,50 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Apontamentos Detalhado
+
+O módulo de **Apontamentos Detalhado** atua como a base de extração de dados brutos (raw data) do sistema UP. Ao contrário dos relatórios de consolidação e resumo, esta interface lista cada lançamento de horas de forma atómica e individual, fornecendo o nível máximo de rastreabilidade de atividades.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/apontamento-detalhado/apontamento-detalhado.png" 
+      alt="Painel de filtros do Apontamento Detalhado" 
+    />
+  </Zoom>
+</div>
+
+## Filtros e Visualização em Tela
+
+O gestor possui um controlo extenso sobre a extração, podendo cruzar múltiplas variáveis antes de carregar os dados. É possível filtrar por **Janela Temporal**, **Usuários**, **Projetos**, **Épicas**, **Atividades**, **Natureza**, **Setores**, **Visita Presencial** e sinalização de **Fora de Escopo**.
+
+Ao acionar o botão **Visualizar**, o sistema popula a grelha inferior, transformando a interface numa tabela de auditoria que apresenta todas as variáveis técnicas e operacionais que compõem cada registo de trabalho diário.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/apontamento-detalhado/apontamento-detalhado-resultado.png" 
+      alt="Grelha de visualização dos apontamentos detalhados em tela" 
+    />
+  </Zoom>
+</div>
+
+## Exportação de Dados para Excel
+
+Devido ao elevado volume de variáveis, a visualização em ecrã pode ser exportada para manipulação externa. Clicar no botão **Exportar Excel** gera e descarrega um ficheiro de folha de cálculo (`.xlsx`) com toda a matriz de dados.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/apontamento-detalhado/apontamento-detalhado-planilha.png" 
+      alt="Ficheiro Excel exportado com os dados brutos de apontamento" 
+    />
+  </Zoom>
+</div>
+
+As colunas exportadas incluem, de forma sequencial: a Chave da Épica, Nome da Épica, Projeto, Etapa, Chave da Atividade, Título da Atividade, Descrição exata redigida pelo colaborador, Total de Horas gastas, Data de execução, Hora de registo, Nome do Usuário e o indicador analítico de "Fora de Escopo".
+
+<Callout type="info">
+  **Business Intelligence (BI):** O ficheiro Excel exportado por este módulo é ideal para ser utilizado como fonte de dados (Data Source) para a construção de tabelas dinâmicas ou para integração com ferramentas externas de BI, como o Power BI ou o Google Data Studio.
+</Callout>
