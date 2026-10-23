@@ -1,0 +1,201 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Configurações do Sistema
+
+O módulo de **Configurações**, situado na área de Entidades, é o painel de controlo central para definir as taxonomias e os parâmetros estruturais que alimentam os formulários de todo o sistema UP. As parametrizações feitas aqui refletem-se diretamente nos *dropdowns* (menus de seleção) de projetos, atividades e gestão de acessos. A interface organiza-se em cinco abas essenciais.
+
+---
+
+## 1. Status de Projeto
+
+Esta aba define o ciclo de vida e a taxonomia de estado dos contratos. A categorização correta do status permite filtrar e auditar o progresso operacional das entregas.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/status-projeto/configuracoes-status-projeto.png" 
+      alt="Listagem global dos status de projeto configurados" 
+    />
+  </Zoom>
+</div>
+
+### Cadastro e Edição de Status
+
+Para adicionar um novo estado, aciona-se **+ Novo status**. O formulário exige um **Nome** (ex: *Terminado*), uma **Descrição** orientativa e o mapeamento para uma **Categoria** macro (ex: *Concluído*, *Em progresso*, *Não iniciado*).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/status-projeto/adicionar-status-projeto.png" 
+      alt="Modal de inclusão de novo status de projeto" 
+    />
+  </Zoom>
+</div>
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/status-projeto/editar-status-projeto.png" 
+      alt="Modal de edição de status de projeto" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## 2. Natureza do Trabalho
+
+Define as macro-áreas de atuação técnica da equipa. Esta classificação é crucial, pois impacta diretamente a contabilização financeira e o progresso do projeto.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/natureza-trabalho/natureza-trabalho.png" 
+      alt="Listagem das naturezas de trabalho parametrizadas" 
+    />
+  </Zoom>
+</div>
+
+### Cadastro e Edição de Natureza
+
+No registo de uma **Nova natureza**, deve fornecer um **Nome** descritivo (ex: *Consultoria*), uma **Sigla** de até 5 caracteres (ex: *CONSU*) e uma **Descrição**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/natureza-trabalho/adicionar-natureza-trabalho.png" 
+      alt="Modal de criação de natureza do trabalho" 
+    />
+  </Zoom>
+</div>
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/natureza-trabalho/editar-natureza-trabalho.png" 
+      alt="Modal de edição de natureza do trabalho" 
+    />
+  </Zoom>
+</div>
+
+<Callout type="warning">
+  **Regra de Negócio (Contabiliza Horas):** A caixa de seleção **Contabiliza horas para progresso do projeto** é um parâmetro crítico. Naturezas marcadas com esta opção irão alimentar a barra de progresso (Gantt/Percentual) das Sprints. Naturezas não marcadas (ex: Retrabalho, Tarefas Administrativas) consumirão saldo, mas não farão o projeto avançar tecnicamente.
+</Callout>
+
+---
+
+## 3. Tipos de Projeto
+
+Esta aba classifica a tipologia de venda ou entrega do contrato, estruturando como o projeto será gerido (ex: *Horas Abertas*, *Horas Fechadas*, *Body Shop*).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/tipos-projeto/tipos-projeto.png" 
+      alt="Listagem dos tipos de projeto disponíveis" 
+    />
+  </Zoom>
+</div>
+
+### Cadastro e Edição de Tipo de Projeto
+
+O modal de cadastro permite associar um **Nome**, **Descrição**, uma **Cor** de identificação visual nas *grids* do sistema, e definir o estado (Ativo/Inativo).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/tipos-projeto/adicionar-tipo-projeto.png" 
+      alt="Modal de inclusão de tipo de projeto" 
+    />
+  </Zoom>
+</div>
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/tipos-projeto/editar-tipo-projeto.png" 
+      alt="Modal de edição de tipo de projeto" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## 4. Tipos de Atividade
+
+Esta taxonomia estabelece o nível mais granular da execução técnica. Classifica a natureza específica de cada tarefa apontada pelo colaborador.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/tipos-atividade/tipos-atividade.png" 
+      alt="Listagem dos tipos de atividade configurados" 
+    />
+  </Zoom>
+</div>
+
+### Cadastro e Edição de Tipo de Atividade
+
+Similar à parametrização de projetos, o registo de uma atividade (ex: *Fora de escopo*, *Bug*, *Melhoria*, *Épica*) requer **Nome**, **Descrição**, e atribuição de **Cor** para facilitar a leitura visual nos relatórios analíticos.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/tipos-atividade/adicionar-tipo-atividade.png" 
+      alt="Modal de criação de tipo de atividade" 
+    />
+  </Zoom>
+</div>
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/tipos-atividade/editar-tipo-atividade.png" 
+      alt="Modal de edição de tipo de atividade" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## 5. Permissões de Visualização
+
+A aba final é um componente de segurança e mapeamento de arquitetura de software, definindo o catálogo de rotas e funcionalidades disponíveis no sistema. Estas permissões são posteriormente atribuídas aos "Grupos" de utilizadores.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/permissoes-visualizacao/permissoes-visualizacao.png" 
+      alt="Listagem de todas as rotas e permissões de visualização parametrizadas" 
+    />
+  </Zoom>
+</div>
+
+### Configuração de Rotas e Permissões
+
+A inserção de uma **Nova permissão** ou edição exige parâmetros técnicos para mapear a funcionalidade na interface (UI):
+* **Nome e Chave de tradução:** Identificadores internos e suporte a localização (i18n).
+* **Menu e Sub-menu:** Posicionamento hierárquico na barra lateral do sistema.
+* **Link:** O caminho de roteamento (URL) para a funcionalidade (ex: `/reports`).
+* **Ícone e Ordem:** Elementos gráficos e de ordenação visual.
+* **Visível:** Define se a rota deve ou não aparecer renderizada no menu.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/permissoes-visualizacao/adicionar-permissoes-visualizacao.png" 
+      alt="Modal técnico para inclusão de rota e permissão" 
+    />
+  </Zoom>
+</div>
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/configuracoes/permissoes-visualizacao/editar-permissoes-visualizacao.png" 
+      alt="Modal técnico para edição de parâmetros de roteamento" 
+    />
+  </Zoom>
+</div>
