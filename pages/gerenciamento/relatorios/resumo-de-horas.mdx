@@ -1,0 +1,84 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Resumo de Horas
+
+O módulo de **Resumo de Horas** atua como um painel de consolidação executiva. Diferente do controle detalhado, esta interface foca em totalizadores financeiros e de alocação, segmentando imediatamente as horas trabalhadas entre "Em Escopo" e "Fora de Escopo". A interface é dividida em duas perspetivas de análise independentes: **Por Usuário** e **Por Projeto**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/resumo-horas/interface-resumo-horas.png" 
+      alt="Painéis independentes de Resumo de Horas no sistema UP" 
+    />
+  </Zoom>
+</div>
+
+## 1. Resumo de Horas por Usuário
+
+Focado na auditoria de desempenho individual, este extrator consolida todo o esforço de um colaborador específico transversalmente aos projetos em que atua.
+
+**Filtros de Pesquisa:**
+O gestor pode delimitar a pesquisa por período, utilizador, setor e classificação técnica. 
+
+**Resultado da Pesquisa (Grid):**
+Ao clicar no botão **Pesquisar**, a grelha inferior lista os projetos em que o utilizador atuou e a respetiva carga horária. No rodapé, o sistema calcula instantaneamente o **Total em Escopo**, o **Total Fora de Escopo** e o **Total Geral**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/resumo-horas/resumo-horas-usuario-resultado.png" 
+      alt="Resultados da pesquisa do Resumo de Horas por Usuário na interface" 
+    />
+  </Zoom>
+</div>
+
+**Documento Gerado (Relatório):**
+Ao acionar o botão **Gerar Relatório**, o sistema emite um PDF que consolida as métricas do utilizador, exibindo um gráfico de barras com o somatório de horas e uma tabela que destrinça o esforço exato (em escopo vs. fora de escopo) consumido em cada projeto no período avaliado.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/resumo-horas/resumo-horas-usuario-relatorio.png" 
+      alt="Documento PDF detalhado do Resumo de Horas por Usuário" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## 2. Resumo de Horas por Projeto
+
+Inverte a perspetiva de análise, focando na saúde operacional do contrato (projeto) independentemente de quantos colaboradores atuaram nele.
+
+**Filtros de Pesquisa:**
+A estrutura de filtros é idêntica à visão por utilizador, substituindo apenas a seleção de pessoas pela seleção direta de um ou mais **Projetos**. 
+
+**Resultado da Pesquisa (Grid):**
+Ao clicar no botão **Pesquisar**, a grelha resultante totaliza as horas do projeto pesquisado, exibindo também os totalizadores de escopo imediatamente no rodapé da interface.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/resumo-horas/resumo-horas-projeto-resultado.png" 
+      alt="Resultados da pesquisa do Resumo de Horas por Projeto na interface" 
+    />
+  </Zoom>
+</div>
+
+**Documento Gerado (Relatório):**
+A exportação em PDF, acionada pelo botão **Gerar Relatório**, agrupa os dados pelo nome do projeto. O relatório discrimina o período avaliado e consolida matematicamente as horas alocadas, permitindo à gestão comercial validar rapidamente a margem de lucro e eventuais desvios de escopo contratuais.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/relatorios/resumo-horas/resumo-horas-projeto-relatorio.png" 
+      alt="Documento PDF detalhado do Resumo de Horas por Projeto" 
+    />
+  </Zoom>
+</div>
+
+<Callout type="warning">
+  **Gestão de Escopo:** Os totalizadores "Fora de Escopo" apresentados nestes resumos são cruciais para fundamentar cobranças adicionais ao cliente. Garanta que a equipa técnica classifica corretamente a natureza das atividades durante o apontamento de horas.
+</Callout>
