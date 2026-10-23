@@ -1,0 +1,132 @@
+import { Callout } from 'nextra/components'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+# Gestão Comercial
+
+O módulo **Comercial**, localizado na seção de Entidades, é responsável pelo gerenciamento do portfólio de clientes da empresa, controle rigoroso do saldo de horas contratuais (pacotes de horas) e cadastro do catálogo de produtos e serviços oferecidos. A interface está dividida nas abas **Clientes** e **Produtos**.
+
+## 1. Aba Clientes
+
+A interface principal da aba Clientes exibe a listagem de todas as empresas cadastradas no sistema, apresentando dados primários como **Razão Social**, **CNPJ**, **Cidade** e **Estado**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/comercial/comercial-clientes.png" 
+      alt="Listagem principal de clientes cadastrados no módulo comercial" 
+    />
+  </Zoom>
+</div>
+
+### Cadastro de Novo Cliente
+
+Ao acionar o botão de adição (`+`) no canto superior direito, o sistema abre o modal de cadastro rápido. É necessário preencher a **Razão Social**, o **CNPJ** e o **CEP** (que preencherá automaticamente os dados de localidade).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/comercial/adicionar-cliente.png" 
+      alt="Modal de inclusão de novo cliente" 
+    />
+  </Zoom>
+</div>
+
+### Edição e Dados Cadastrais
+
+Clicando nos três pontos ao lado de um registro e selecionando a opção de edição, o gestor acessa o painel detalhado do cliente. A primeira aba deste modal (**Editar Cliente**) permite revisar ou atualizar as informações básicas de registro inseridas durante a criação.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/comercial/editar-cliente.png" 
+      alt="Modal de edição das informações de cadastro do cliente" 
+    />
+  </Zoom>
+</div>
+
+---
+
+## 2. Gestão de Saldo de Horas
+
+Ainda dentro do modal de edição do cliente, a segunda aba, denominada **Saldo de horas**, atua como uma "conta corrente" operacional. Ela exibe um extrato completo de todas as entradas e saídas de horas daquele cliente, separadas por **Data**, **Movimento** (Sacar ou Depositar), **Tipo de hora**, **Projeto** e **Quantidade**.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/comercial/editar-cliente-saldo-horas.png" 
+      alt="Extrato de movimentação do saldo de horas do cliente" 
+    />
+  </Zoom>
+</div>
+
+### Depositar Horas (Entrada)
+
+Quando o cliente adquire um novo pacote de serviços, utiliza-se o botão **Depositar**. O operador deve informar o **Tipo de hora** comprada (ex: *Consultoria*), a **Quantidade**, a **Data de faturamento**, e opcionalmente marcar se esse saldo **Expira**, adicionar observações ou anexar arquivos (como o comprovante ou nota fiscal).
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/comercial/editar-cliente-saldo-horas-depositar.png" 
+      alt="Formulário para depósito de horas compradas pelo cliente" 
+    />
+  </Zoom>
+</div>
+
+### Sacar Horas (Saída/Consumo)
+
+Quando o saldo do cliente é consumido e alocado para execução, utiliza-se o botão **Sacar**. Neste formulário, o operador vincula o consumo a um **Projeto** específico, indica o **Tipo de hora**, a **Quantidade** a ser deduzida (registrada com valor negativo) e pode atrelar a dedução a um depósito prévio específico.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/comercial/editar-cliente-saldo-horas-sacar.png" 
+      alt="Formulário para saque e alocação de horas do saldo do cliente" 
+    />
+  </Zoom>
+</div>
+
+<Callout type="info">
+  **Governança Comercial:** A manutenção rigorosa dos depósitos e saques com os devidos anexos de comprovação é vital para evitar passivos contratuais e garantir que o apontamento de horas da equipe técnica esteja coberto financeiramente.
+</Callout>
+
+---
+
+## 3. Aba Produtos
+
+A aba **Produtos** gerencia o catálogo de serviços comercializados pela empresa (ex: *Consultoria*, *Desenvolvimento*, *Dev. Pleno*). Estes produtos alimentam os seletores de "Tipo de hora" vistos na gestão de saldo e nos apontamentos do sistema.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/comercial/comercial-produtos.png" 
+      alt="Listagem do catálogo de produtos e serviços" 
+    />
+  </Zoom>
+</div>
+
+### Cadastro de Produto
+
+Ao clicar no botão de adição (`+`), o gestor comercial pode cadastrar um novo tipo de serviço informando apenas a nomenclatura do **Nome** do produto.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/comercial/adicionar-produto.png" 
+      alt="Modal de cadastro de novo produto" 
+    />
+  </Zoom>
+</div>
+
+### Edição de Produto
+
+Para adequar a nomenclatura de um serviço às novas práticas comerciais da empresa, basta editar o registro existente e alterar o seu nome no modal de edição.
+
+<div className="mt-10">
+  <Zoom>
+    <img 
+      src="/entidades/comercial/editar-produto.png" 
+      alt="Modal de edição de nomenclatura do produto" 
+    />
+  </Zoom>
+</div>
